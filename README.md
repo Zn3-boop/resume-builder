@@ -11,23 +11,6 @@
 - jsPDF
 - React Router 6
 
-## 项目结构
-
-```
-src/
-├── components/       # 通用组件
-│   ├── ui/          # UI组件（表单、按钮等）
-│   └── preview/     # 预览组件
-├── pages/           # 页面组件
-├── utils/           # 工具函数
-│   ├── pdfExport.js # PDF导出工具
-│   └── validators.js # 表单验证
-├── services/        # API服务
-├── context/         # Context状态管理
-├── hooks/           # 自定义Hooks
-└── types/           # TypeScript类型定义
-```
-
 ## 功能特性
 
 - ✅ 简历信息管理
