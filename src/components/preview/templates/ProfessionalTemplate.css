@@ -1,0 +1,266 @@
+/* 专业风格简历模板样式 */
+
+.resume-template.professional-template {
+  display: flex;
+  gap: 24px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* 左侧栏 */
+.professional-template .left-column {
+  width: 35%;
+  background: #f5f7fa;
+  padding: 32px 24px;
+  border-radius: 8px;
+}
+
+/* 右侧栏 */
+.professional-template .right-column {
+  flex: 1;
+  padding: 32px 24px;
+}
+
+/* 个人资料部分 */
+.professional-template .profile-section {
+  text-align: center;
+  margin-bottom: 32px;
+  padding-bottom: 24px;
+  border-bottom: 2px solid #1890ff;
+}
+
+.professional-template .avatar-container {
+  width: 120px;
+  height: 120px;
+  margin: 0 auto 20px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid #1890ff;
+  box-shadow: 0 2px 8px rgba(24, 144, 255, 0.15);
+}
+
+.professional-template .avatar {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.professional-template .name {
+  font-size: 28px;
+  font-weight: 700;
+  margin: 0 0 20px 0;
+  color: #1890ff;
+}
+
+.professional-template .contact-info {
+  text-align: left;
+  margin-top: 20px;
+}
+
+.professional-template .contact-item {
+  margin-bottom: 12px;
+  font-size: 14px;
+}
+
+.professional-template .contact-item .label {
+  color: #666;
+  font-weight: 500;
+}
+
+.professional-template .contact-item .value {
+  color: #333;
+  margin-left: 8px;
+}
+
+/* 章节标题 */
+.professional-template .section-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #1890ff;
+  margin: 0 0 16px 0;
+  padding-bottom: 8px;
+  border-bottom: 2px solid #1890ff;
+}
+
+/* 技能部分 */
+.professional-template .skills-section {
+  margin-bottom: 32px;
+}
+
+.professional-template .skills-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.professional-template .skill-item {
+  background: #fff;
+  padding: 12px;
+  border-radius: 4px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.professional-template .skill-name {
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 4px;
+}
+
+.professional-template .skill-level {
+  font-size: 12px;
+  color: #1890ff;
+}
+
+/* 教育背景 */
+.professional-template .education-section {
+  margin-bottom: 32px;
+}
+
+.professional-template .education-item {
+  margin-bottom: 20px;
+  padding: 12px;
+  background: #fff;
+  border-radius: 4px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.professional-template .school {
+  font-size: 15px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 4px;
+}
+
+.professional-template .major {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 4px;
+}
+
+.professional-template .degree {
+  font-size: 13px;
+  color: #999;
+  margin-bottom: 4px;
+}
+
+.professional-template .date {
+  font-size: 12px;
+  color: #999;
+}
+
+/* 个人简介 */
+.professional-template .summary-section {
+  margin-bottom: 32px;
+}
+
+.professional-template .summary {
+  font-size: 15px;
+  line-height: 1.8;
+  color: #555;
+  text-align: justify;
+  margin: 0;
+}
+
+/* 工作经历 */
+.professional-template .experience-section {
+  margin-bottom: 32px;
+}
+
+.professional-template .experience-item {
+  margin-bottom: 24px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.professional-template .experience-item:last-child {
+  border-bottom: none;
+}
+
+.professional-template .item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 8px;
+}
+
+.professional-template .company {
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+}
+
+.professional-template .date {
+  font-size: 13px;
+  color: #999;
+}
+
+.professional-template .position {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 8px;
+}
+
+.professional-template .description {
+  font-size: 14px;
+  line-height: 1.8;
+  color: #555;
+  text-align: justify;
+}
+
+/* 项目经历 */
+.professional-template .projects-section {
+  margin-bottom: 32px;
+}
+
+.professional-template .project-item {
+  margin-bottom: 24px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.professional-template .project-item:last-child {
+  border-bottom: none;
+}
+
+.professional-template .project-name {
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+.professional-template .project-role {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 8px;
+}
+
+.professional-template .tech-stack {
+  font-size: 13px;
+  color: #1890ff;
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .professional-template {
+    flex-direction: column;
+  }
+
+  .professional-template .left-column,
+  .professional-template .right-column {
+    width: 100%;
+    padding: 20px 16px;
+  }
+
+  .professional-template .name {
+    font-size: 24px;
+  }
+
+  .professional-template .section-title {
+    font-size: 16px;
+  }
+}

@@ -1,0 +1,279 @@
+/* 简历编辑器样式 */
+
+.resume-editor {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #f5f5f5;
+}
+
+/* 顶部工具栏 */
+.editor-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 24px;
+  background: #fff;
+  border-bottom: 1px solid #f0f0f0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  height: 64px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.logo {
+  font-size: 20px;
+  font-weight: 600;
+  color: #1890ff;
+  margin: 0;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+}
+
+/* 主内容区 */
+.resume-editor .ant-layout {
+  flex: 1;
+  overflow: hidden;
+}
+
+/* 左侧编辑区 */
+.editor-sider {
+  background: #fff;
+  border-right: 1px solid #f0f0f0;
+  overflow-y: auto;
+  height: calc(100vh - 64px);
+}
+
+.editor-sider .ant-tabs {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.editor-sider .ant-tabs-content {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.editor-sider .ant-tabs-tab {
+  padding: 12px 16px;
+  font-size: 14px;
+}
+
+/* 表单区域 */
+.form-section {
+  padding: 16px;
+}
+
+.form-section .ant-form-item {
+  margin-bottom: 16px;
+}
+
+.form-section .ant-form-item-label > label {
+  font-weight: 500;
+  color: #333;
+}
+
+/* 列表项样式 */
+.work-experience-item,
+.education-item,
+.project-item,
+.skill-item {
+  border: 1px solid #f0f0f0;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 16px;
+  background: #fafafa;
+  transition: all 0.3s;
+}
+
+.work-experience-item:hover,
+.education-item:hover,
+.project-item:hover,
+.skill-item:hover {
+  border-color: #1890ff;
+  box-shadow: 0 2px 8px rgba(24, 144, 255, 0.1);
+}
+
+.item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  font-weight: 500;
+  color: #333;
+}
+
+/* 右侧预览区 */
+.editor-content {
+  background: #f5f5f5;
+  padding: 24px;
+  overflow-y: auto;
+  display: flex;
+  justify-content: center;
+}
+
+.resume-preview-container {
+  width: 210mm;
+  min-height: 297mm;
+  background: #fff;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  padding: 20mm;
+  margin: 0 auto;
+}
+
+/* 打印样式 */
+@media print {
+  .editor-header,
+  .editor-sider {
+    display: none !important;
+  }
+
+  .editor-content {
+    padding: 0;
+    background: #fff;
+  }
+
+  .resume-preview-container {
+    box-shadow: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+  }
+
+  @page {
+    size: A4;
+    margin: 0;
+  }
+}
+
+/* 响应式设计 */
+@media (max-width: 1200px) {
+  .resume-preview-container {
+    transform: scale(0.9);
+    transform-origin: top center;
+  }
+}
+
+@media (max-width: 992px) {
+  .editor-sider {
+    width: 350px !important;
+  }
+
+  .resume-preview-container {
+    transform: scale(0.8);
+  }
+}
+
+@media (max-width: 768px) {
+  .editor-header {
+    padding: 0 16px;
+    flex-direction: column;
+    height: auto;
+    padding-bottom: 12px;
+  }
+
+  .header-left,
+  .header-right {
+    width: 100%;
+    justify-content: space-between;
+    margin: 8px 0;
+  }
+
+  .editor-sider {
+    width: 100% !important;
+    height: auto;
+    max-height: 50vh;
+  }
+
+  .editor-content {
+    padding: 16px;
+  }
+
+  .resume-preview-container {
+    width: 100%;
+    min-height: auto;
+    padding: 16px;
+    transform: none;
+  }
+}
+
+/* 动画效果 */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.form-section,
+.resume-preview-container {
+  animation: fadeIn 0.3s ease-out;
+}
+
+/* 按钮样式优化 */
+.ant-btn {
+  border-radius: 4px;
+  height: 32px;
+  padding: 4px 15px;
+  font-size: 14px;
+}
+
+.ant-btn-primary {
+  background: #1890ff;
+  border-color: #1890ff;
+}
+
+.ant-btn-primary:hover {
+  background: #40a9ff;
+  border-color: #40a9ff;
+}
+
+/* 上传组件样式 */
+.ant-upload.ant-upload-select-picture-card {
+  width: 100%;
+  height: 120px;
+  border-radius: 8px;
+}
+
+.ant-upload-list-picture-card-container {
+  width: 100%;
+  height: 120px;
+}
+
+/* 输入框样式 */
+.ant-input,
+.ant-input-textarea {
+  border-radius: 4px;
+}
+
+.ant-input:focus,
+.ant-input-textarea:focus {
+  border-color: #1890ff;
+  box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
+}
+
+/* 日期选择器样式 */
+.ant-picker {
+  width: 100%;
+  border-radius: 4px;
+}
+
+/* 选择器样式 */
+.ant-select {
+  border-radius: 4px;
+}

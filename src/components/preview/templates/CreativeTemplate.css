@@ -1,0 +1,387 @@
+/* 创意风格简历模板样式 */
+
+.resume-template.creative-template {
+  width: 100%;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+  color: #5a4a42;
+  line-height: 1.6;
+  background: linear-gradient(135deg, #fff8f0 0%, #fff5e6 100%);
+}
+
+/* 顶部头部 */
+.creative-template .template-header {
+  background: linear-gradient(135deg, #ff9e7d 0%, #ffcc80 100%);
+  padding: 40px 32px;
+  margin: -20px -20px 32px -20px;
+  color: #fff;
+}
+
+.creative-template .header-content {
+  max-width: 100%;
+}
+
+.creative-template .profile-info {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.creative-template .avatar-wrapper {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 4px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.creative-template .avatar {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.creative-template .info-content {
+  flex: 1;
+}
+
+.creative-template .name {
+  font-size: 32px;
+  font-weight: 700;
+  margin: 0 0 16px 0;
+  color: #fff;
+}
+
+.creative-template .contact-details {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.creative-template .contact-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 14px;
+}
+
+.creative-template .contact-item .icon {
+  font-size: 16px;
+  opacity: 0.9;
+}
+
+.creative-template .contact-item .text {
+  opacity: 0.95;
+}
+
+/* 章节标题 */
+.creative-template .section-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #ff9e7d;
+  margin: 0 0 20px 0;
+  padding-bottom: 10px;
+  border-bottom: 3px solid #ffcc80;
+  position: relative;
+}
+
+.creative-template .section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 60px;
+  height: 3px;
+  background: #ff9e7d;
+}
+
+/* 个人简介 */
+.creative-template .summary-section {
+  margin-bottom: 32px;
+}
+
+.creative-template .summary {
+  font-size: 15px;
+  line-height: 1.8;
+  color: #555;
+  text-align: justify;
+  margin: 0;
+}
+
+/* 技能部分 */
+.creative-template .skills-section {
+  margin-bottom: 32px;
+}
+
+.creative-template .skills-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 16px;
+}
+
+.creative-template .skill-card {
+  background: #f8f9fa;
+  padding: 16px;
+  border-radius: 8px;
+  transition: transform 0.2s;
+}
+
+.creative-template .skill-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.15);
+}
+
+.creative-template .skill-name {
+  font-size: 15px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 12px;
+}
+
+.creative-template .skill-level {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.creative-template .level-bar {
+  flex: 1;
+  height: 6px;
+  background: #e9ecef;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.creative-template .level-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+  border-radius: 3px;
+  transition: width 0.3s ease;
+}
+
+.creative-template .level-text {
+  font-size: 12px;
+  color: #667eea;
+  font-weight: 500;
+  min-width: 40px;
+}
+
+/* 工作经历 */
+.creative-template .experience-section {
+  margin-bottom: 32px;
+}
+
+.creative-template .timeline {
+  position: relative;
+  padding-left: 24px;
+}
+
+.creative-template .timeline::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(180deg, #667eea 0%, #764ba2 100%);
+}
+
+.creative-template .timeline-item {
+  position: relative;
+  margin-bottom: 24px;
+  padding-left: 20px;
+}
+
+.creative-template .timeline-marker {
+  position: absolute;
+  left: -29px;
+  top: 4px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #667eea;
+  border: 3px solid #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.creative-template .item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 8px;
+}
+
+.creative-template .company {
+  font-size: 17px;
+  font-weight: 600;
+  color: #333;
+}
+
+.creative-template .date {
+  font-size: 13px;
+  color: #667eea;
+  font-weight: 500;
+}
+
+.creative-template .position {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 8px;
+}
+
+.creative-template .description {
+  font-size: 14px;
+  line-height: 1.8;
+  color: #555;
+  margin: 0;
+}
+
+/* 项目经历 */
+.creative-template .projects-section {
+  margin-bottom: 32px;
+}
+
+.creative-template .projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.creative-template .project-card {
+  background: #f8f9fa;
+  padding: 20px;
+  border-radius: 8px;
+  border-left: 4px solid #667eea;
+  transition: all 0.2s;
+}
+
+.creative-template .project-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.15);
+}
+
+.creative-template .project-name {
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+  margin: 0 0 8px 0;
+}
+
+.creative-template .project-role {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 12px;
+}
+
+.creative-template .tech-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.creative-template .tech-tag {
+  display: inline-block;
+  padding: 4px 12px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #fff;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+/* 教育背景 */
+.creative-template .education-section {
+  margin-bottom: 32px;
+}
+
+.creative-template .education-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.creative-template .education-card {
+  background: #f8f9fa;
+  padding: 16px 20px;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.creative-template .school-info {
+  flex: 1;
+}
+
+.creative-template .school {
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+  margin: 0 0 8px 0;
+}
+
+.creative-template .date {
+  font-size: 13px;
+  color: #667eea;
+  font-weight: 500;
+}
+
+.creative-template .education-details {
+  text-align: right;
+}
+
+.creative-template .major {
+  font-size: 14px;
+  color: #666;
+  margin: 0 0 4px 0;
+}
+
+.creative-template .degree {
+  font-size: 13px;
+  color: #999;
+  margin: 0;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .creative-template .template-header {
+    padding: 32px 20px;
+    margin: -20px -20px 24px -20px;
+  }
+
+  .creative-template .profile-info {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .creative-template .name {
+    font-size: 24px;
+  }
+
+  .creative-template .contact-details {
+    align-items: center;
+  }
+
+  .creative-template .section-title {
+    font-size: 18px;
+  }
+
+  .creative-template .skills-container {
+    grid-template-columns: 1fr;
+  }
+
+  .creative-template .projects-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .creative-template .education-card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .creative-template .education-details {
+    text-align: left;
+  }
+}
