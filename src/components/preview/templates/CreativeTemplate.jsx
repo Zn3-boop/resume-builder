@@ -1,11 +1,12 @@
-import React from 'react';
+import React, { memo } from 'react';
 import './CreativeTemplate.css';
 
 /**
  * 创意风格简历模板
  * 采用现代设计风格，包含彩色标签和视觉元素
+ * 使用React.memo进行性能优化
  */
-const CreativeTemplate = ({ data }) => {
+const CreativeTemplate = memo(({ data }) => {
   const { personalInfo, workExperience, education, projects, skills } = data;
 
   return (
@@ -157,6 +158,6 @@ const CreativeTemplate = ({ data }) => {
       )}
     </div>
   );
-};
+});
 
 export default CreativeTemplate;

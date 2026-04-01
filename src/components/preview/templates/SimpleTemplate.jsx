@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { memo } from 'react';
 import './SimpleTemplate.css';
 
 /**
  * 简约风格简历模板
+ * 使用React.memo进行性能优化
  */
-const SimpleTemplate = ({ data }) => {
+const SimpleTemplate = memo(({ data }) => {
   const { personalInfo, workExperience, education, projects, skills } = data;
 
   return (
@@ -92,6 +93,6 @@ const SimpleTemplate = ({ data }) => {
       )}
     </div>
   );
-};
+});
 
 export default SimpleTemplate;

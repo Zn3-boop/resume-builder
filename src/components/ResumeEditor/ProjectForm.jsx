@@ -1,11 +1,13 @@
 
-import React from 'react';
-import { Form, Input, Button } from 'antd';
-import { PlusOutlined, DeleteOutlined } from '@ant-design/icons';
+import React, { useMemo } from 'react';
+import { Button } from 'antd';
+import { PlusOutlined } from '@ant-design/icons';
+import { FixedSizeList as List } from 'react-window';
+import ProjectItem from './ProjectItem';
+
+const ITEM_HEIGHT = 400; // 每个项目经验项的高度
 
 const ProjectForm = ({ data, onChange }) => {
-  const [form] = Form.useForm();
-
   const handleAdd = () => {
     const newProject = {
       id: Date.now(),
@@ -27,27 +29,20 @@ const ProjectForm = ({ data, onChange }) => {
     onChange(newData);
   };
 
-  const itemStyle = {
-    padding: '16px',
-    backgroundColor: '#fafafa',
-    borderRadius: '8px',
-    marginBottom: '16px',
-    border: '1px solid #f0f0f0',
-  };
+  // 使用useMemo缓存列表项的渲染函数
+  const Row = useMemo(() => ({ index, style }) => (
+    <div style={style}>
+      <ProjectItem
+        item={data[index]}
+        index={index}
+        onChange={handleChange}
+        onDelete={handleDelete}
+      />
+    </div>
+  ), [data, handleChange, handleDelete]);
 
-  const headerStyle = {
-    display: 'flex',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    marginBottom: '16px',
-  };
-
-  const titleStyle = {
-    fontSize: '16px',
-    fontWeight: '600',
-    margin: 0,
-    color: '#333',
-  };
+  // 列表容器高度
+  const listHeight = Math.min(data.length * ITEM_HEIGHT, 600);
 
   return (
     <div>
@@ -69,60 +64,28 @@ const ProjectForm = ({ data, onChange }) => {
         </Button>
       </div>
 
-      {data.map((item, index) => (
-        <div key={item.id} style={itemStyle}>
-          <div style={headerStyle}>
-            <h4 style={titleStyle}>项目经验 {index + 1}</h4>
-            <Button
-              type="text"
-              danger
-              icon={<DeleteOutlined />}
-              onClick={() => handleDelete(item.id)}
-            >
-              删除
-            </Button>
-          </div>
-
-          <Form layout="vertical">
-            <Form.Item label="项目名称">
-              <Input
-                value={item.name}
-                onChange={(e) => handleChange(index, 'name', e.target.value)}
-                placeholder="请输入项目名称"
-                size="large"
-              />
-            </Form.Item>
-
-            <Form.Item label="担任角色">
-              <Input
-                value={item.role}
-                onChange={(e) => handleChange(index, 'role', e.target.value)}
-                placeholder="请输入担任角色"
-                size="large"
-              />
-            </Form.Item>
-
-            <Form.Item label="时间段">
-              <Input
-                value={item.period}
-                onChange={(e) => handleChange(index, 'period', e.target.value)}
-                placeholder="例如：2020.09 - 2024.06"
-                size="large"
-              />
-            </Form.Item>
-
-            <Form.Item label="项目描述">
-              <Input.TextArea
-                value={item.description}
-                onChange={(e) => handleChange(index, 'description', e.target.value)}
-                placeholder="请输入项目描述"
-                rows={4}
-                style={{ borderRadius: '8px' }}
-              />
-            </Form.Item>
-          </Form>
+      {data.length > 0 ? (
+        <List
+          height={listHeight}
+          itemCount={data.length}
+          itemSize={ITEM_HEIGHT}
+          width="100%"
+          itemData={data}
+        >
+          {Row}
+        </List>
+      ) : (
+        <div style={{
+          padding: '24px',
+          textAlign: 'center',
+          color: '#999',
+          backgroundColor: '#fafafa',
+          borderRadius: '8px',
+          border: '1px dashed #d9d9d9'
+        }}>
+          暂无项目经验，点击上方"添加"按钮添加
         </div>
-      ))}
+      )}
     </div>
   );
 };

@@ -1,11 +1,12 @@
-import React from 'react';
+import React, { memo } from 'react';
 import './ProfessionalTemplate.css';
 
 /**
  * 专业风格简历模板
  * 采用左右分栏布局，左侧为个人信息和技能，右侧为工作经历和项目
+ * 使用React.memo进行性能优化
  */
-const ProfessionalTemplate = ({ data }) => {
+const ProfessionalTemplate = memo(({ data }) => {
   const { personalInfo, workExperience, education, projects, skills } = data;
 
   return (
@@ -129,6 +130,6 @@ const ProfessionalTemplate = ({ data }) => {
       </div>
     </div>
   );
-};
+});
 
 export default ProfessionalTemplate;

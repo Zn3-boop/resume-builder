@@ -1,7 +1,75 @@
 
-import React, { useState } from 'react';
+import React, { useState, memo } from 'react';
 import { Form, Input, Button, Select, Slider } from 'antd';
 import { PlusOutlined, DeleteOutlined } from '@ant-design/icons';
+
+// 使用memo优化技能项组件
+const SkillItem = memo(({ skill, index, onDelete }) => (
+  <div style={{
+    display: 'flex',
+    alignItems: 'center',
+    gap: '12px',
+    marginBottom: '12px',
+    padding: '12px',
+    backgroundColor: '#fafafa',
+    borderRadius: '8px',
+    border: '1px solid #f0f0f0',
+  }}>
+    <span style={{ flex: '0 0 120px', fontWeight: '500' }}>{skill.name}</span>
+    <div style={{
+      flex: 1,
+      height: '8px',
+      backgroundColor: '#f0f0f0',
+      borderRadius: '4px',
+      overflow: 'hidden',
+    }}>
+      <div style={{
+        height: '100%',
+        background: 'linear-gradient(90deg, #667eea 0%, #764ba2 100%)',
+        borderRadius: '4px',
+        width: `${skill.level}%`,
+      }} />
+    </div>
+    <span style={{ flex: '0 0 40px', textAlign: 'right', fontSize: '14px', color: '#666' }}>
+      {skill.level}%
+    </span>
+    <Button
+      type="text"
+      danger
+      icon={<DeleteOutlined />}
+      onClick={() => onDelete(index)}
+      size="small"
+    />
+  </div>
+));
+
+SkillItem.displayName = 'SkillItem';
+
+// 使用memo优化爱好项组件
+const HobbyItem = memo(({ hobby, index, onDelete }) => (
+  <div style={{
+    display: 'inline-flex',
+    alignItems: 'center',
+    gap: '8px',
+    padding: '8px 16px',
+    backgroundColor: '#fafafa',
+    borderRadius: '20px',
+    margin: '0 8px 8px 0',
+    border: '1px solid #f0f0f0',
+  }}>
+    <span>{hobby}</span>
+    <Button
+      type="text"
+      danger
+      icon={<DeleteOutlined />}
+      onClick={() => onDelete(index)}
+      size="small"
+      style={{ padding: '0 4px' }}
+    />
+  </div>
+));
+
+HobbyItem.displayName = 'HobbyItem';
 
 const SkillsForm = ({ skills, hobbies, onChange }) => {
   const [newSkill, setNewSkill] = useState({ name: '', level: 80 });
@@ -40,43 +108,6 @@ const SkillsForm = ({ skills, hobbies, onChange }) => {
     fontWeight: '600',
     margin: '0 0 16px 0',
     color: '#333',
-  };
-
-  const skillItemStyle = {
-    display: 'flex',
-    alignItems: 'center',
-    gap: '12px',
-    marginBottom: '12px',
-    padding: '12px',
-    backgroundColor: '#fafafa',
-    borderRadius: '8px',
-    border: '1px solid #f0f0f0',
-  };
-
-  const skillBarStyle = {
-    flex: 1,
-    height: '8px',
-    backgroundColor: '#f0f0f0',
-    borderRadius: '4px',
-    overflow: 'hidden',
-  };
-
-  const skillBarFillStyle = (level) => ({
-    height: '100%',
-    background: 'linear-gradient(90deg, #667eea 0%, #764ba2 100%)',
-    borderRadius: '4px',
-    width: `${level}%`,
-  });
-
-  const hobbyItemStyle = {
-    display: 'inline-flex',
-    alignItems: 'center',
-    gap: '8px',
-    padding: '8px 16px',
-    backgroundColor: '#fafafa',
-    borderRadius: '20px',
-    margin: '0 8px 8px 0',
-    border: '1px solid #f0f0f0',
   };
 
   return (
@@ -128,22 +159,12 @@ const SkillsForm = ({ skills, hobbies, onChange }) => {
 
         {/* 技能列表 */}
         {skills.map((skill, index) => (
-          <div key={index} style={skillItemStyle}>
-            <span style={{ flex: '0 0 120px', fontWeight: '500' }}>{skill.name}</span>
-            <div style={skillBarStyle}>
-              <div style={skillBarFillStyle(skill.level)} />
-            </div>
-            <span style={{ flex: '0 0 40px', textAlign: 'right', fontSize: '14px', color: '#666' }}>
-              {skill.level}%
-            </span>
-            <Button
-              type="text"
-              danger
-              icon={<DeleteOutlined />}
-              onClick={() => handleDeleteSkill(index)}
-              size="small"
-            />
-          </div>
+          <SkillItem
+            key={index}
+            skill={skill}
+            index={index}
+            onDelete={handleDeleteSkill}
+          />
         ))}
       </div>
 
@@ -182,17 +203,12 @@ const SkillsForm = ({ skills, hobbies, onChange }) => {
         {/* 爱好列表 */}
         <div style={{ display: 'flex', flexWrap: 'wrap' }}>
           {hobbies.map((hobby, index) => (
-            <div key={index} style={hobbyItemStyle}>
-              <span>{hobby}</span>
-              <Button
-                type="text"
-                danger
-                icon={<DeleteOutlined />}
-                onClick={() => handleDeleteHobby(index)}
-                size="small"
-                style={{ padding: '0 4px' }}
-              />
-            </div>
+            <HobbyItem
+              key={index}
+              hobby={hobby}
+              index={index}
+              onDelete={handleDeleteHobby}
+            />
           ))}
         </div>
       </div>
